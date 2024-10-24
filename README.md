@@ -23,7 +23,8 @@ conda activate ./.conda
 Generate random DNA of length 120 and cut 60 by this.
 ```bash
 >seq.txt
-for (( i=0; i<10; ++i)); do printf "%s\t%d\n" $(shuf -er -n120 {A,C,G,T} | tr -d '\n') 60 >>seq.txt; done
+for (( i=0; i<10; ++i)); do printf "%s\t%d\n" $(cat <(shuf -er -n64 {A,C,G,T}) <(shuf -er -n2 {G,}) <(shuf -er -n54 {A,C,G,T}) | tr -d '\n') 60 >>seq.txt; done
+for (( i=0; i<10; ++i)); do printf "%s\t%d\n" $(cat <(shuf -er -n54 {A,C,G,T}) <(shuf -er -n2 {C,}) <(shuf -er -n64 {A,C,G,T}) | tr -d '\n') 60 >>seq.txt; done
 ```
 # Usage
 ```bash
