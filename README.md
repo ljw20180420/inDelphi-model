@@ -28,5 +28,5 @@ for (( i=0; i<10; ++i)); do printf "%s\t%d\n" $(cat <(shuf -er -n54 {A,C,G,T}) <
 ```
 # Usage
 ```bash
-./run.py <seq.txt
+./run.py mESC 3<seq.txt 4>output.txt
 ```
